@@ -54,6 +54,9 @@ else
 	pkglist=( $(hab pkg list --all) )
 fi
 
+# used to track exit value
+vsum=0
+
 for pkg in ${pkglist[@]} ; do
 	pkgcheck=()
 	pkgdir="${habpkgs}/${pkg}"
@@ -61,6 +64,7 @@ for pkg in ${pkglist[@]} ; do
 	echo -n "${pkg}: "
 	test -e "${pkgfiles}" -a -r "${pkgfiles}"
 	if [ ${?} -ne 0 ] ; then
+		((vsum++))
 		echo "failed"
 		scriptecho "'${pkgfiles}' does not seem to exist or is unreadable" 1>&2
 		echo
@@ -69,6 +73,7 @@ for pkg in ${pkglist[@]} ; do
 	# suppress "b2sum: WARNING: 5 lines are improperly formatted" on stderr
 	readarray -t pkgcheck < <(b2sum --check "${pkgfiles}" 2>/dev/null)
 	if [[ ${pkgcheck[@]} =~ ': FAILED' ]] ; then
+		((vsum++))
 		echo "failed"
 	else
 		echo "verified"
@@ -81,3 +86,5 @@ for pkg in ${pkglist[@]} ; do
 		echo "${l}"
 	done
 done
+
+exit ${vsum}
