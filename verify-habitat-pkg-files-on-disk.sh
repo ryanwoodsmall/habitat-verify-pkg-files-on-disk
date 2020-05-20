@@ -59,9 +59,10 @@ for pkg in ${pkglist[@]} ; do
 	pkgdir="${habpkgs}/${pkg}"
 	pkgfiles="${pkgdir}/FILES"
 	echo -n "${pkg}: "
-	if [ ! -e "${pkgfiles}" ] ; then
+	test -e "${pkgfiles}" -a -r "${pkgfiles}"
+	if [ ${?} -ne 0 ] ; then
 		echo "failed"
-		scriptecho "'${pkgfiles}' does not seem to exist" 1>&2
+		scriptecho "'${pkgfiles}' does not seem to exist or is unreadable" 1>&2
 		echo
 		continue
 	fi
