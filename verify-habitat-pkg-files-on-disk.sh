@@ -1,9 +1,5 @@
 #!/bin/bash
 
-## exit if we hit any errors, reference unused vars, or a pipe dies
-#set -eu
-#set -o pipefail
-
 # we'll use this in a few places
 scriptname="$(basename ${BASH_SOURCE[0]})"
 
@@ -58,7 +54,6 @@ else
 	pkglist=( $(hab pkg list --all) )
 fi
 
-vsum=0
 for pkg in ${pkglist[@]} ; do
 	pkgcheck=()
 	pkgdir="${habpkgs}/${pkg}"
