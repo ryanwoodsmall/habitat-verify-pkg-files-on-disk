@@ -13,3 +13,7 @@ done
 ```
 
 with a lot of boilerplate.
+
+## links
+
+- bldr : https://bldr.habitat.sh/#/pkgs/ryanwoodsmall/verify-habitat-pkg-files-on-disk
