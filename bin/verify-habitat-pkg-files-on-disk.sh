@@ -2,7 +2,7 @@
 
 # we'll use this in a few places
 scriptname="$(basename ${BASH_SOURCE[0]})"
- 
+
 # hab-specific path
 scriptpath="$(realpath ${BASH_SOURCE[0]})"
 runtimepathfile="$(dirname ${scriptpath})/../RUNTIME_PATH"
