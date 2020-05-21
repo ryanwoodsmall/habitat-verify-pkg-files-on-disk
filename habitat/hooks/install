@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# create a place to hold a symlink for easy calling
+mkdir -p {{pkg.svc_static_path}}/bin
+
+# loosen perms up a little
+chmod 775 {{pkg.svc_static_path}}
+chmod 775 {{pkg.svc_static_path}}/bin
+
+# link in our script, overwriting what was previously there
+ln -sf {{pkg.path}}/bin/{{pkg.name}}.sh {{pkg.svc_static_path}}/bin/
+
+# vim: set ft=sh:

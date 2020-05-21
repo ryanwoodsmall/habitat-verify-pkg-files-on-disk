@@ -1,7 +1,15 @@
-#!/bin/bash
+#!/hab/pkgs/core/bash/5.0.16/20200305233030/bin/bash
 
 # we'll use this in a few places
 scriptname="$(basename ${BASH_SOURCE[0]})"
+ 
+# hab-specific path
+scriptpath="$(realpath ${BASH_SOURCE[0]})"
+runtimepathfile="$(dirname ${scriptpath})/../RUNTIME_PATH"
+if [ -e "${runtimepathfile}" ] ; then
+	PATH="$(cat ${runtimepathfile}):${PATH}"
+fi
+export PATH
 
 # and these
 : ${hab:="/hab"}
@@ -17,7 +25,7 @@ function failexit() {
 }
 
 # we needs some programs
-for req in hab b2sum seq ; do
+for req in b2sum hab seq ; do
 	which ${req} >/dev/null 2>&1 || failexit "required program '${req}' not found"
 done
 
