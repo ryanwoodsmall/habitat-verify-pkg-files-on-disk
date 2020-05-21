@@ -26,7 +26,7 @@ sudo hab pkg install ryanwoodsmall/verify-habitat-pkg-files-on-disk
 sudo /hab/svc/verify-habitat-pkg-files-on-disk/static/bin/verify-habitat-pkg-files-on-disk.sh
 
 # verify just (the latest version of) this package:
-hab pkg list  ryanwoodsmall/verify-habitat-pkg-files-on-disk \
+hab pkg list ryanwoodsmall/verify-habitat-pkg-files-on-disk \
 | tail -1 \
 | xargs /hab/svc/verify-habitat-pkg-files-on-disk/static/bin/verify-habitat-pkg-files-on-disk.sh
 ```
