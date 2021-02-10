@@ -12,7 +12,7 @@ pkg_upstream_url="https://github.com/ryanwoodsmall/verify-habitat-pkg-files-on-d
 pkg_description="verify files installed via habitat packages on-disk"
 
 do_build() {
-	fix_interpreter "bin/*.sh" core/bash bin/bash
+	fix_interpreter "bin/*.sh" core/coreutils bin/env
 }
 
 do_install() {

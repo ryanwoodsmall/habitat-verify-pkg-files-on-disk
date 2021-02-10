@@ -1,4 +1,4 @@
-#!/hab/pkgs/core/bash/5.0.16/20200305233030/bin/bash
+#!/usr/bin/env bash
 
 # we'll use this in a few places
 scriptname="$(basename ${BASH_SOURCE[0]})"
