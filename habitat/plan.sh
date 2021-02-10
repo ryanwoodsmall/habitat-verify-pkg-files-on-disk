@@ -4,15 +4,14 @@ pkg_name="verify-habitat-pkg-files-on-disk"
 pkg_origin="ryanwoodsmall"
 pkg_maintainer="ryanwoodsmall"
 pkg_version="0.0.0"
-pkg_deps=(core/bash core/coreutils core/which)
-pkg_interpreters=(bin/bash)
+pkg_deps=(core/bash-static core/coreutils-static core/which)
 pkg_bin_dirs=(bin)
 pkg_license=(bsd)
 pkg_upstream_url="https://github.com/ryanwoodsmall/verify-habitat-pkg-files-on-disk.git"
 pkg_description="verify files installed via habitat packages on-disk"
 
 do_build() {
-	fix_interpreter "bin/*.sh" core/coreutils bin/env
+	fix_interpreter "bin/*.sh" core/coreutils-static bin/env
 }
 
 do_install() {
