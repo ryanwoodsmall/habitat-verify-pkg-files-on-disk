@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # we'll use this in a few places
 scriptname="$(basename ${BASH_SOURCE[0]})"
