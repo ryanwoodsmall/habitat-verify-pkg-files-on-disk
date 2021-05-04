@@ -95,4 +95,4 @@ for pkg in ${pkglist[@]} ; do
 	done
 done
 
-exit ${vsum}
+exit $((${vsum}%256))
