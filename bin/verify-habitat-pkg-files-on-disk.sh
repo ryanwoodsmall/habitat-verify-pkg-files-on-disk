@@ -95,4 +95,10 @@ for pkg in ${pkglist[@]} ; do
 	done
 done
 
-exit $((${vsum}%256))
+if [[ ${vsum} == 0 ]] ; then
+  exit 0
+elif [[ $((${vsum}%256)) == 0 ]] ; then
+  exit 1
+else
+  exit $((${vsum}%256))
+fi
