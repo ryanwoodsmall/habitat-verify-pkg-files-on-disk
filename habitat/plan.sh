@@ -3,7 +3,7 @@
 pkg_name="verify-habitat-pkg-files-on-disk"
 pkg_origin="ryanwoodsmall"
 pkg_maintainer="ryanwoodsmall"
-pkg_version="0.0.0"
+pkg_version="0.0.1"
 pkg_deps=(core/bash-static core/coreutils-static core/hab core/which)
 pkg_bin_dirs=(bin)
 pkg_license=(bsd)
